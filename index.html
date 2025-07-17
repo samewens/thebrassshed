@@ -12,7 +12,6 @@
       width: 100%;
       background: black;
       overflow: hidden;
-      touch-action: none;
     }
 
     #shed-cover {
@@ -21,14 +20,10 @@
       left: 0;
       width: 100vw;
       height: 100vh;
+      background: url('still-frame.png') no-repeat center center;
+      background-size: cover;
       pointer-events: none;
       z-index: 1;
-    }
-
-    #shed-image {
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
     }
 
     #door-hotspot {
@@ -50,17 +45,14 @@
       display: none;
       width: 100vw;
       height: 100vh;
-      object-fit: contain;
+      object-fit: cover;
       z-index: 3;
     }
   </style>
 </head>
 <body>
 
-  <div id="shed-cover">
-    <img id="shed-image" src="still-frame.png" alt="Shed image with Enter door" />
-  </div>
-
+  <div id="shed-cover"></div>
   <div id="door-hotspot" onclick="playVideo()"></div>
 
   <video id="intro-video" preload="auto" playsinline>
