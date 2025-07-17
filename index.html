@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Brass Shed Studio</title>
+<style>
+  body, html {
+    margin: 0; padding: 0; height: 100%; background: black; overflow: hidden;
+  }
+  #shed-cover {
+    width: 100vw;
+    height: 100vh;
+    background: url('https://117723549-710980519908216215.preview.editmysite.com/uploads/1/1/7/7/117723549/still-frame_orig.png') no-repeat center center;
+    background-size: cover;
+    cursor: pointer;
+  }
+  video {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+</style>
+</head>
+<body>
+
+<div id="shed-cover" onclick="playVideo()"></div>
+<video id="intro-video" preload="auto">
+  <source src="enter-shed.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  const video = document.getElementById('intro-video');
+  const cover = document.getElementById('shed-cover');
+
+  function playVideo() {
+    cover.style.display = 'none';
+    video.style.display = 'block';
+    video.play();
+  }
+
+  video.onended = () => {
+    window.location.href = 'https://www.samewens.com';
+  };
+</script>
+
+</body>
+</html>
