@@ -5,17 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The Brass Shed Studio</title>
 <style>
-  body, html {
-    margin: 0; padding: 0; height: 100%; background: black; overflow: hidden;
+  html, body {
+    margin: 0; padding: 0; height: 100%; overflow: hidden; background: black;
   }
   #shed-cover {
+    position: relative;
     width: 100vw;
     height: 100vh;
     background: url('https://117723549-710980519908216215.preview.editmysite.com/uploads/1/1/7/7/117723549/still-frame_orig.png') no-repeat center center;
     background-size: cover;
-    position: relative;
-    /* Disable pointer events on background */
-    pointer-events: none;
+    pointer-events: none; /* disables clicks on background */
   }
   #door-hotspot {
     position: absolute;
@@ -23,11 +22,10 @@
     top: 28%;
     width: 10%;
     height: 40%;
+    pointer-events: auto; /* enables clicks here */
+    background-color: rgba(255,255,255,0.01); /* tiny transparent area to catch pointer */
     cursor: pointer;
-    z-index: 2;
-    pointer-events: auto;
-    /* Transparent background to capture clicks */
-    background-color: rgba(255, 255, 255, 0.01);
+    z-index: 10;
   }
   video {
     display: none;
@@ -49,8 +47,8 @@
 </video>
 
 <script>
-  const video = document.getElementById('intro-video');
   const cover = document.getElementById('shed-cover');
+  const video = document.getElementById('intro-video');
 
   function playVideo() {
     cover.style.display = 'none';
