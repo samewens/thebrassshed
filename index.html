@@ -1,65 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Brass Shed Studio</title>
-<style>
-  html, body {
-    margin: 0; padding: 0; height: 100%; overflow: hidden; background: black;
-  }
-  #shed-cover {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: url('still-frame.png') no-repeat center center;
-    background-size: cover;
-    pointer-events: none; /* disables clicks on background */
-  }
-  #door-hotspot {
-    position: absolute;
-    left: 47%;
-    top: 19%;
-    width: 18%;
-    height: 72%;
-    pointer-events: auto; /* enables clicks here */
-    background-color: rgba(255,255,255,0.01); /* tiny transparent area to catch pointer */
-    cursor: pointer;
-    z-index: 10;
-  }
-  video {
-    display: none;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>The Brass Shed Studio</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: black;
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    #shed-cover {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://117723549-710980519908216215.preview.editmysite.com/uploads/1/1/7/7/117723549/still-frame_orig.png') no-repeat center center;
+      background-size: cover;
+      pointer-events: none;
+    }
+
+    #door-hotspot {
+      position: absolute;
+      left: 47%;
+      top: 19%;
+      width: 18%;
+      height: 72%;
+      pointer-events: auto;
+      background-color: rgba(255, 255, 255, 0.01);
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    video {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
 
-<div id="shed-cover">
-  <div id="door-hotspot" onclick="playVideo()"></div>
-</div>
+  <div id="shed-cover">
+    <div id="door-hotspot" onclick="playVideo()"></div>
+  </div>
 
-<video id="intro-video" preload="auto">
-  <source src="enter-shed.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+  <video id="intro-video" preload="auto" playsinline>
+    <source src="enter-shed.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 
-<script>
-  const cover = document.getElementById('shed-cover');
-  const video = document.getElementById('intro-video');
+  <script>
+    const cover = document.getElementById('shed-cover');
+    const video = document.getElementById('intro-video');
 
-  function playVideo() {
-    cover.style.display = 'none';
-    video.style.display = 'block';
-    video.play();
-  }
+    function playVideo() {
+      cover.style.display = 'none';
+      video.style.display = 'block';
+      video.play();
+    }
 
-  video.onended = () => {
-    window.location.href = 'https://samewens.github.io/samewens/';
-  };
-</script>
+    video.onended = () => {
+      window.location.href = 'https://samewens.github.io/samewens/';
+    };
+  </script>
 
 </body>
 </html>
