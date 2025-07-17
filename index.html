@@ -9,19 +9,30 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      width: 100%;
       background: black;
       overflow: hidden;
-      touch-action: none;
     }
 
     #shed-cover {
       position: relative;
       width: 100vw;
       height: 100vh;
-      background: url('https://raw.githubusercontent.com/samewens/thebrassshed/main/still-frame.png') no-repeat center center;
-      background-size: cover;
-      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #shed-cover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('still-frame.png') no-repeat center center;
+      background-size: contain; /* ← KEY FIX */
+      z-index: 0;
     }
 
     #door-hotspot {
@@ -30,10 +41,9 @@
       top: 19%;
       width: 18%;
       height: 72%;
-      pointer-events: auto;
-      background-color: rgba(255, 255, 255, 0.01);
+      z-index: 1;
       cursor: pointer;
-      z-index: 10;
+      background-color: rgba(255, 255, 255, 0.01); /* Invisible but clickable */
     }
 
     video {
@@ -41,6 +51,12 @@
       width: 100vw;
       height: 100vh;
       object-fit: cover;
+    }
+
+    @media (orientation: portrait) {
+      #shed-cover::before {
+        background-size: contain;
+      }
     }
   </style>
 </head>
