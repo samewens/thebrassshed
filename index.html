@@ -13,7 +13,16 @@
     height: 100vh;
     background: url('https://117723549-710980519908216215.preview.editmysite.com/uploads/1/1/7/7/117723549/still-frame_orig.png') no-repeat center center;
     background-size: cover;
+    position: relative;
+  }
+  #door-hotspot {
+    position: absolute;
+    left: 36%;
+    top: 28%;
+    width: 10%;
+    height: 40%;
     cursor: pointer;
+    z-index: 2;
   }
   video {
     display: none;
@@ -25,7 +34,10 @@
 </head>
 <body>
 
-<div id="shed-cover" onclick="playVideo()"></div>
+<div id="shed-cover">
+  <div id="door-hotspot" onclick="playVideo()"></div>
+</div>
+
 <video id="intro-video" preload="auto">
   <source src="enter-shed.mp4" type="video/mp4" />
   Your browser does not support the video tag.
