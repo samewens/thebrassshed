@@ -1,79 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>The Brass Shed Studio</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      background: black;
-      overflow: hidden;
-    }
-
-    #shed-cover {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: url('still-frame.png') no-repeat center center;
-      background-size: cover;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    #door-hotspot {
-      position: fixed;
-      left: 47%;
-      top: 19%;
-      width: 18%;
-      height: 72%;
-      pointer-events: auto;
-      background-color: rgba(255, 255, 255, 0.01);
-      cursor: pointer;
-      z-index: 2;
-    }
-
-    video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      display: none;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 3;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>The Brass Shed Studio</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%; width: 100%; background: black; overflow: hidden;
+  }
+  #shed-cover {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://raw.githubusercontent.com/samewens/thebrassshed/main/still-frame.png') no-repeat center center;
+    background-size: contain; /* contain so entire image shows without cropping */
+    pointer-events: none;
+  }
+  #door-hotspot {
+    position: absolute;
+    left: 47%;
+    top: 19%;
+    width: 18%;
+    height: 72%;
+    pointer-events: auto;
+    background-color: rgba(255, 255, 255, 0.01);
+    cursor: pointer;
+    z-index: 10;
+  }
+  video {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* keep entire video visible without cropping */
+    background: black;
+  }
+</style>
 </head>
 <body>
 
-  <div id="shed-cover"></div>
+<div id="shed-cover">
   <div id="door-hotspot" onclick="playVideo()"></div>
+</div>
 
-  <video id="intro-video" preload="auto" playsinline>
-    <source src="enter-shed.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+<video id="intro-video" preload="auto" playsinline>
+  <source src="enter-shed.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
-  <script>
-    const cover = document.getElementById('shed-cover');
-    const video = document.getElementById('intro-video');
+<script>
+  const cover = document.getElementById('shed-cover');
+  const video = document.getElementById('intro-video');
 
-    function playVideo() {
-      cover.style.display = 'none';
-      video.style.display = 'block';
-      video.play();
-    }
+  function playVideo() {
+    cover.style.display = 'none';
+    video.style.display = 'block';
+    video.play();
+  }
 
-    video.onended = () => {
-      window.location.href = 'https://samewens.github.io/samewens/';
-    };
-  </script>
+  video.onended = () => {
+    window.location.href = 'https://samewens.github.io/samewens/';
+  };
+</script>
 
 </body>
 </html>
