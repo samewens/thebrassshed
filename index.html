@@ -9,30 +9,22 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      width: 100%;
       background: black;
       overflow: hidden;
     }
 
-    #shed-cover {
+    #container {
       position: relative;
       width: 100vw;
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
     }
 
-    #shed-cover::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
+    #shed-image {
       width: 100%;
       height: 100%;
-      background: url('still-frame.png') no-repeat center center;
-      background-size: contain; /* ← KEY FIX */
-      z-index: 0;
+      object-fit: contain;
+      display: block;
     }
 
     #door-hotspot {
@@ -41,9 +33,9 @@
       top: 19%;
       width: 18%;
       height: 72%;
-      z-index: 1;
       cursor: pointer;
-      background-color: rgba(255, 255, 255, 0.01); /* Invisible but clickable */
+      background-color: rgba(255, 255, 255, 0.01);
+      z-index: 2;
     }
 
     video {
@@ -52,17 +44,12 @@
       height: 100vh;
       object-fit: cover;
     }
-
-    @media (orientation: portrait) {
-      #shed-cover::before {
-        background-size: contain;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <div id="shed-cover">
+  <div id="container">
+    <img id="shed-image" src="still-frame.png" alt="Shed image" />
     <div id="door-hotspot" onclick="playVideo()"></div>
   </div>
 
@@ -72,11 +59,11 @@
   </video>
 
   <script>
-    const cover = document.getElementById('shed-cover');
+    const container = document.getElementById('container');
     const video = document.getElementById('intro-video');
 
     function playVideo() {
-      cover.style.display = 'none';
+      container.style.display = 'none';
       video.style.display = 'block';
       video.play();
     }
