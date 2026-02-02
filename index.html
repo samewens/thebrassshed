@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Brass Shed</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="scene">
+      <canvas id="transitionCanvas"></canvas>
+      <!-- <div class="scene" id="landingScene"> -->
+      <img
+        id="landingImage"
+        src="assets/images/landing_page.PNG"
+        alt="Landing"
+      />
+
+      <div
+        id="enterBtn"
+        style="
+          top: 31%;
+          left: 52.7%;
+          width: 10.7%;
+          height: 9.2%;
+          transform: rotate(-5deg);
+        "
+      ></div>
+      <!-- </div> -->
+      <div class="scene" id="mainImage">
+        <img
+          src="./assets/images/main_site_background.PNG"
+          alt="Studio"
+          class="scene-img"
+        />
+
+        <div
+          id="screen-title"
+          style="top: 19%; left: 41%; width: 23%; height: 3%"
+        ></div>
+        <div
+          class="hotspot-white popup-hotspot"
+          data-title="Horns / Brass"
+          data-sound="Popup_HORNS_BRASS_sound.mp3"
+          data-content="horns-brass"
+          style="top: 25%; left: 43.4%; width: 18%; height: 15%"
+        ></div>
+
+        <div
+          class="hotspot-white popup-hotspot"
+          data-title="Contact"
+          data-sound="Popup_CONTACT_sound.mp3"
+          data-content="contact"
+          style="
+            top: 46%;
+            left: 39.5%;
+            width: 10.5%;
+            height: 3%;
+            transform: rotate(-7deg);
+          "
+        ></div>
+        <div
+          class="hotspot-white popup-hotspot"
+          data-title="Credits"
+          data-sound="Popup_CREDITS_sound.mp3"
+          data-content="credits"
+          style="
+            top: 82.5%;
+            left: 77.5%;
+            width: 20%;
+            height: 14%;
+            transform: rotate(0deg);
+          "
+        ></div>
+        <div
+          class="hotspot-white popup-hotspot"
+          data-title="Composer"
+          data-sound="Popup_COMPOSER_sound.mp3"
+          data-content="composer"
+          style="
+            top: 51.5%;
+            left: 40.5%;
+            width: 19%;
+            height: 5%;
+            border-bottom-left-radius: 100%;
+            transform: rotate(0deg);
+          "
+        ></div>
+        <div
+          class="hotspot-white popup-hotspot"
+          data-title="Night Auras"
+          data-sound="Popup_NIGHT_AURAS_sound.mp3"
+          data-content="night-auras"
+          style="
+            top: 52%;
+            left: 80%;
+            width: 6%;
+            height: 22%;
+            /* border-top-right-radius: 70%; */
+            transform: rotate(-35deg);
+          "
+        ></div>
+        <div
+          class="hotspot-white popup-hotspot"
+          data-title="Remote Sessions"
+          data-sound="Popup_REMOTE_SESSIONS_sound.mp3"
+          data-content="remote-sessions"
+          style="
+            top: 38%;
+            left: 65.5%;
+            width: 4%;
+            height: 5%;
+            border-radius: 100%;
+            /* transform: rotate(3deg); */
+          "
+        ></div>
+        <div
+          class="hotspot-white popup-hotspot"
+          data-title="Ambient Brass Covers"
+          data-sound=""
+          data-content="ambient-brass"
+          style="
+            top: 15%;
+            left: 23%;
+            width: 9%;
+            height: 11%;
+
+            /* transform: rotate(3deg); */
+          "
+        ></div>
+        <div
+          class="hotspot-white popup-hotspot"
+          data-title="Match the Mute|Game"
+          data-content="mute-match-game"
+          data-popup-size="large"
+          style="
+            top: 55%;
+            left: 34%;
+            width: 20%;
+            height: 35%;
+            border-top-right-radius: 10%;
+            border-bottom-left-radius: 50%;
+            transform: rotate(2deg);
+          "
+        ></div>
+        <div
+          class="hotspot-white popup-hotspot"
+          data-title="Live"
+          data-sound="Popup_LIVE_sound.mp3"
+          data-content="live"
+          style="
+            top: 77%;
+            left: 18%;
+            width: 11%;
+            height: 11%;
+            transform: rotate(15deg);
+          "
+        ></div>
+
+        <div
+          class="hotspot sound-hotspot"
+          id="Trumpet_Section_4"
+          data-title="Trumpet Section 4"
+          data-sound="FRENCH_HORN_sound.mp3"
+          style="
+            top: 59%;
+            left: 4%;
+            width: 7%;
+            height: 19%;
+            border-radius: 15px;
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          id="glass_water"
+          data-title="GLASS OF DRINK ON DESK"
+          data-sound="DRINK_sound.mp3"
+          style="
+            top: 42.5%;
+            left: 55.5%;
+            width: 3%;
+            height: 7%;
+            border-radius: 15px;
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          data-title="Trumpet Section 5"
+          data-sound="HORN_sound.mp3"
+          style="
+            top: 40%;
+            left: 5%;
+            width: 6.5%;
+            height: 18%;
+            border-radius: 15px;
+            transform: rotate(-5deg);
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          data-title="Trumpet Section 3"
+          data-sound="FLUGELHORN_sound.mp3"
+          style="
+            top: 38%;
+            left: 11.2%;
+            width: 5.9%;
+            height: 20%;
+            border-radius: 25px;
+            transform: rotate(-5deg);
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          data-title="Trumpet Section 8"
+          data-sound="TRUMPET_sound.mp3"
+          style="
+            top: 36%;
+            left: 17%;
+            width: 3.2%;
+            height: 22%;
+            border-radius: 5px;
+            transform: rotate(-7deg);
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          data-title="Trumpet Section 6"
+          data-sound="VALVE_TROMBONE_sound.mp3"
+          style="
+            top: 32%;
+            left: 21%;
+            width: 3.2%;
+            height: 25%;
+            border-radius: 5px;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            transform: rotate(-18deg);
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          data-title="Trumpet Section 7"
+          data-sound="SLIDE_TROMBONE_sound.mp3"
+          style="
+            top: 30%;
+            left: 25%;
+            width: 4%;
+            height: 29%;
+            border-radius: 5px;
+            transform: rotate(-5deg);
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          data-title="Speaker left 10"
+          data-sound="LEFT_SPEAKER_sound.mp3"
+          style="
+            top: 27%;
+            left: 33%;
+            width: 6.5%;
+            height: 13%;
+            border-radius: 5px;
+            transform: rotate(-5deg);
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          data-title="Speaker right 9"
+          data-sound="RIGHT_SPEAKER_sound.mp3"
+          style="
+            top: 27%;
+            left: 66%;
+            width: 7%;
+            height: 11.5%;
+            border-radius: 5px;
+            transform: rotate(5deg);
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          data-title="piano right bottom 1"
+          data-sound="BOTTOM_SYNTH_sound.mp3"
+          style="
+            top: 62%;
+            left: 74.5%;
+            width: 7%;
+            height: 22%;
+            border-bottom-left-radius: 55px;
+            transform: rotate(-25deg);
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+        <div
+          class="hotspot sound-hotspot"
+          data-title="piano right top 2"
+          data-sound="THIRD_SYNTH_UP_sound.mp3"
+          style="
+            top: 41%;
+            left: 85%;
+            width: 5%;
+            height: 20%;
+            border-radius: 5px;
+            transform: rotate(-45deg);
+          "
+        >
+          <button class="sound-close hidden">✕</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup" class="popup hidden">
+      <div class="popup-header">
+        <span id="popup-title"></span>
+        <button id="popup-close">✕</button>
+      </div>
+      <div class="popup-body" id="popup-body"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
